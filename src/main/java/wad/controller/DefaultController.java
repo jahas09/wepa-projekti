@@ -18,15 +18,15 @@ public class DefaultController {
 
     @GetMapping("*")
     public String defaultRedirect() {
-        if (this.newsRepository.findByOtsikko("fake news!") == null) {
-            News news = new News();
-//            news.setKategoriat(new ArrayList());
-//            news.getKategoriat().add(new Category());
-//            news.setTime(new Date());
-            news.setKirjoittaja("Minä");
-            news.setOtsikko("fake news!");
-            this.newsRepository.save(news);
-        }
+//        if (this.newsRepository.findByOtsikko("fake news!") == null) {
+//            News news = new News();
+////            news.setKategoriat(new ArrayList());
+////            news.getKategoriat().add(new Category());
+////            news.setTime(new Date());
+//            news.setKirjoittaja("Minä");
+//            news.setOtsikko("fake news!");
+//            this.newsRepository.save(news);
+//        }
         return "redirect:/news";
     }
 }

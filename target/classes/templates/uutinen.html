@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.springframework.org/security/tags">
+    <head>
+        <title>Uutiset</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <h1 th:text="${uutinen.otsikko}">Otsikko</h1>
+        <section th:text="${uutinen.ingressi}"></section><br/>
+        
+        <section th:text="${uutinen.teksti}"></section><br/>
+<!--        <h2>Post news</h2>
+        <form th:action="@{/news}" action="/news" method="POST" >
+            <input type="text" name="otsikko"/><span>Otsikko</span><br/>
+            <input type="text" name="kirjoittaja"/><span>Kirjoittaja</span>
+        </form>-->
+    </body>
+</html>

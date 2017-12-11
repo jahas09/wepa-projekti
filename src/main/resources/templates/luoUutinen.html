@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.springframework.org/security/tags">
+    <head>
+        <title>Uutiset</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <style>
+            textarea {
+                width:50%; 
+                height: 50%
+            }
+        </style>
+    </head>
+    <body>
+<!--                <h1 th:text="${uutinen.otsikko}">Otsikko</h1>
+                <section th:text="${uutinen.ingressi}"></section><br/>
+                
+                <section th:text="${uutinen.teksti}"></section><br/>
+        <h2>Post news</h2>
+        <form th:action="@{/news}" action="/news" th:object="${news}" method="POST" >
+            <p>Otsikko</p>
+            <input type="text" name="otsikko"/><br/>
+            <p>Kirjoittaja</p>
+            <input type="text" name="kirjoittaja"/><br/>
+            <p>Ingressi</p>
+            <textarea name="ingressi"></textarea><br/>
+            <p>Uutinen</p>
+            <textarea name="teksti"></textarea><br/>
+            <input type="submit" value="Submit"/>
+            -->
+        <form th:action="@{/news}" action="/news" th:object="${news}" method="POST" >
+            <table>
+                <tr>
+                    <td>Otsikko</td>
+                    <td><input type="text" th:field="*{otsikko}" /></td>
+                    <td th:if="${#fields.hasErrors('otsikko')}" th:errors="*{otsikko}">otsikon virheviesti</td>
+                </tr>
+                <tr>
+                    <td>Kirjoittaja</td>
+                    <td><input type="text" th:field="*{kirjoittaja}" /></td>
+                    <td th:if="${#fields.hasErrors('kirjoittaja')}" th:errors="*{kirjoittaja}">kirjoittajan virheviesti</td>
+                </tr>
+                <tr>
+                    <td>Ingressi </td>
+                    <td><textarea name="ingressi" th:field="*{ingressi}"></textarea></td>
+                    <td th:if="${#fields.hasErrors('ingressi')}" th:errors="*{ingressi}">ingressin virheviesti</td>
+                </tr>
+                <tr>
+                    <td>Teksti </td>
+                    <td><textarea name="teksti" th:field="*{teksti}"></textarea></td>
+                    <td th:if="${#fields.hasErrors('teksti')}" th:errors="*{teksti}">tekstin virheviesti</td>
+                </tr>
+                <tr>
+                    <td><button type="submit">Submit</button></td>
+                </tr>
+            </table>
+        </form>
+
+    </body>
+</html>

@@ -12,14 +12,12 @@
         <h2>News:</h2>
         <ul>
             <li th:each="uutinen : ${news}">
-                <span th:text="${uutinen.otsikko}">otsikko</span>
+                <a th:href="@{/news/{id} (id = ${uutinen.id})}">
+                    <span th:text="${uutinen.otsikko}">otsikko</span>
+                </a>
             </li>
         </ul>
         
-        <h2>Post news</h2>
-        <form th:action="@{/news}" action="/news" method="POST" >
-            <input type="text" name="otsikko"/><span>Otsikko</span><br/>
-            <input type="text" name="kirjoittaja"/><span>Kirjoittaja</span>
-        </form>
+        <a th:href="@{/sendNews}">Post news</a>
     </body>
 </html>

@@ -1,4 +1,5 @@
 wad/controller/DefaultController.class
+wad/domain/UutisOlio.class
 wad/domain/Category.class
 wad/repository/KategoryRepository.class
 wad/controller/NewsController.class
