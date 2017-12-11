@@ -9,6 +9,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
+        <section sec:authorize="!isAuthenticated()">
+            <a th:href="@{/register}">Register</a><br/>
+            <a th:href="@{/login}">Log in</a>
+        </section>
+        <section sec:authorize="isAuthenticated()">
+            <a th:href="@{/logout}">Log out</a>
+        </section>
         <h2>News:</h2>
         <ul>
             <li th:each="uutinen : ${news}">

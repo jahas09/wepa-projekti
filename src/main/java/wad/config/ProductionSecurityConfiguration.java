@@ -1,4 +1,3 @@
-
 package wad.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-        
+
 @Profile("production")
 @Configuration
 @EnableWebSecurity
@@ -24,7 +23,7 @@ public class ProductionSecurityConfiguration extends WebSecurityConfigurerAdapte
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .anyRequest().authenticated();
+                .anyRequest().permitAll();
         http.formLogin()
                 .permitAll();
     }
