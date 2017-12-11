@@ -1,0 +1,8 @@
+wad/controller/DefaultController.class
+wad/domain/Category.class
+wad/repository/KategoryRepository.class
+wad/controller/NewsController.class
+wad/config/DefaultSecurityConfiguration.class
+wad/ProjektiApplication.class
+wad/domain/News.class
+wad/repository/NewsRepository.class
