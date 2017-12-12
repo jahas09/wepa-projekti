@@ -4,45 +4,46 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.springframework.org/security/tags">
     <head>
-        <title>Uutiset</title>
+        <title>Send news</title>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <style>
             textarea {
-                width:50%; 
-                height: 50%
+                width:500px; 
+                height: 200px
             }
         </style>
     </head>
     <body>
 
-        <form th:action="@{/news}" action="/news" th:object="${news}" method="POST" >
+        <form th:action="@{/news}" action="/news" th:object="${newsObject}" method="POST" >
+            <p>Choose fitting categories for the News (hold <kbd>ctrl</kbd> to choose multiple ones)</p>
+            <select name="kategoriat" th:field="*{kategoriat}" size="10" multiple="multiple">
+                <option th:each="kategoria : ${kategoriat}" th:value="${kategoria.id}" th:text="${kategoria.name}"></option>
+            </select>
             <table>
                 <tr>
-                    <td>Otsikko</td>
+                    <td>Heading</td>
                     <td><input type="text" th:field="*{otsikko}" /></td>
                     <td th:if="${#fields.hasErrors('otsikko')}" th:errors="*{otsikko}">otsikon virheviesti</td>
                 </tr>
                 <tr>
-                    <td>Kirjoittaja</td>
-                    <td><input type="text" th:field="*{kirjoittaja}" /></td>
-                    <td th:if="${#fields.hasErrors('kirjoittaja')}" th:errors="*{kirjoittaja}">kirjoittajan virheviesti</td>
-                </tr>
-                <tr>
-                    <td>Ingressi </td>
+                    <td>Introductory paragraph	</td>
                     <td><textarea name="ingressi" th:field="*{ingressi}"></textarea></td>
                     <td th:if="${#fields.hasErrors('ingressi')}" th:errors="*{ingressi}">ingressin virheviesti</td>
                 </tr>
                 <tr>
-                    <td>Teksti </td>
+                    <td>Content</td>
                     <td><textarea name="teksti" th:field="*{teksti}"></textarea></td>
                     <td th:if="${#fields.hasErrors('teksti')}" th:errors="*{teksti}">tekstin virheviesti</td>
                 </tr>
-                <tr>
-                    <td><button type="submit">Submit</button></td>
-                </tr>
             </table>
+            <button type="submit">Submit</button>
+            
         </form>
+
+
+        <a th:href="@{/news}">Back to frontpage</a>
 
     </body>
 </html>

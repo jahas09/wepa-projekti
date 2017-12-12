@@ -29,6 +29,7 @@ public class DefaultSecurityConfiguration extends WebSecurityConfigurerAdapter {
         
         http.authorizeRequests()
                 .antMatchers("/h2-console/*").permitAll()
+                .antMatchers("/news/*").permitAll()
                 .antMatchers("/").permitAll()
                 .antMatchers("/register").permitAll()
                 .antMatchers("/news").permitAll()

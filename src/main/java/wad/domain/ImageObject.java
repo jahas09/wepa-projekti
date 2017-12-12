@@ -1,10 +1,8 @@
 
 package wad.domain;
 
-import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.validation.constraints.NotEmpty;
+import javax.persistence.Lob;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,10 +12,8 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Category extends AbstractPersistable<Long>{
+public class ImageObject extends AbstractPersistable<Long>{
+    @Lob
+    private byte[] content;
     
-    @NotEmpty
-    private String name;
-    @ManyToMany
-    private List<News> uutiset;
 }

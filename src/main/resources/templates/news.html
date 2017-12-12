@@ -16,7 +16,7 @@
         <section sec:authorize="isAuthenticated()">
             <a th:href="@{/logout}">Log out</a>
         </section>
-        <h2>News:</h2>
+        <h2><span th:text="${kategoria}"></span> News:</h2>
         <ul>
             <li th:each="uutinen : ${news}">
                 <a th:href="@{/news/{id} (id = ${uutinen.id})}">
@@ -24,7 +24,25 @@
                 </a>
             </li>
         </ul>
+
+        <section sec:authorize="isAuthenticated()">
+            <p>Add a news category</p>
+            <form  th:action="@{/categories}" action="/categories" method="POST" >
+                <input type="text" name="name"/>
+                <button type="submit">Submit</button>
+            </form>
+            <br/>
+        <a sec:authorize="isAuthenticated()" th:href="@{/sendNews}">Post news</a>
+        </section>
         
-        <a th:href="@{/sendNews}">Post news</a>
+
+        <p>Categories</p>
+        <ul>
+            <li th:each="category: ${kategoriat}">
+                <a th:href="@{/news/category/{id} (id = ${category.id})}">
+                    <span th:text="${category.name}">kategorian nimi</span>
+                </a>
+            </li>
+        </ul>
     </body>
 </html>

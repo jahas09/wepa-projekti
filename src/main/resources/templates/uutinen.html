@@ -10,13 +10,24 @@
     </head>
     <body>
         <h1 th:text="${uutinen.otsikko}">Otsikko</h1>
+        <p th:text="${uutinen.time}">Julkaisuaika</p>
+        
+        <img id="kuva">Kuva</img>
+        
         <section th:text="${uutinen.ingressi}"></section><br/>
         
         <section th:text="${uutinen.teksti}"></section><br/>
-<!--        <h2>Post news</h2>
-        <form th:action="@{/news}" action="/news" method="POST" >
-            <input type="text" name="otsikko"/><span>Otsikko</span><br/>
-            <input type="text" name="kirjoittaja"/><span>Kirjoittaja</span>
-        </form>-->
+        
+        <p>Kirjoittaja: <span th:text="${uutinen.kirjoittaja}"></span></p>
+        
+        <p>News from same categories</p>
+        <ul>
+            <li th:each="category: ${uutinen.kategoriat}">
+                <a th:href="@{/news/category/{id} (id = ${category.id})}">
+                    <span th:text="${category.name}">kategorian nimi</span>
+                </a>
+            </li>
+        </ul>
+        <a th:href="@{/news}">Back to frontpage</a>
     </body>
 </html>

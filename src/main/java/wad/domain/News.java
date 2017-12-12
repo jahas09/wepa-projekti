@@ -17,17 +17,17 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @Data
 public class News extends AbstractPersistable<Long>{
 
-    @NotEmpty
-    @Size(min = 1, max = 50)
+//    @NotEmpty
+//    @Size(min = 1, max = 50)
     private String otsikko;
     private Date time;
-    @NotEmpty
-    @Size(min = 0, max = 300)
+//    @NotEmpty
+//    @Size(min = 0, max = 300)
     private String ingressi;
-    @NotEmpty
+//    @NotEmpty
     private String teksti;
-//    private ??? kuva;
+//    private Long kuvaId;
     private String kirjoittaja;
-//    @ManyToMany
-//    private List<Category> kategoriat;
+    @ManyToMany
+    private List<Category> kategoriat;
 }
