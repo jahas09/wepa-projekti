@@ -1,0 +1,11 @@
+Palvelu uutisten lukemiseen ja lähettämiseen.
+
+Käyttötapauksia:
+  Rekisteröitynyt käyttäjä voi lisätä uustiskategorioita ja uutisia.
+  Kuka vain voi lukea uutisia tai rekisteröityä palveluun.
+ 
+Puutteita:
+  Katselukerroista ei pidetä kirjaa joten siihen liittyviä ominaisuuksia ei ole.
+  Testit puuttuvat kokonaan.
+  Uutisiin ei voi lisätä kuvaa.
+  Listaus ei ohjeistuksen mukainen.
